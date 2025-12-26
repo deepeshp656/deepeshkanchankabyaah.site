@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepesh & Kanchan | The Imperial Groom's Invite</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;400;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        :root {
+            --emerald: #06261d;
+            --gold: #c5a059;
+            --text-light: #fdfaf0;
+            --font-fancy: 'Cinzel Decorative', serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--emerald);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+            line-height: 1.6;
+        }
+
+        /* --- STICKY NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: 80px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 5%; z-index: 11000;
+            background: rgba(6, 38, 29, 0.1); backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+        }
+        .nav-logo { height: 100px; width: auto; filter: drop-shadow(0 0 10px var(--gold)); cursor: pointer; }
+        .nav-text { font-family: var(--font-fancy); font-size: 0.6rem; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+
+        /* --- LANDING INTRO --- */
+        #auto-intro {
+            position: fixed; inset: 0; background: radial-gradient(circle, #0a3228 0%, #000 100%); z-index: 10000;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
+        }
+        .intro-logo-big { width: 140px; filter: drop-shadow(0 0 15px var(--gold)); margin-bottom: 25px; animation: pulse 3s infinite ease-in-out; }
+        @keyframes pulse { 0%, 100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
+        .intro-text { font-family: var(--font-fancy); color: var(--gold); font-size: 0.8rem; letter-spacing: 6px; margin-bottom: 10px; }
+        .intro-names { font-family: var(--font-serif); font-style: italic; font-weight: 700; color: var(--gold); font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 30px; }
+
+        /* --- HERO --- */
+        .hero {
+		height: 110vh; /* Changed from 120vh to 100vh for a cleaner full-screen look */
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end; /* Pushes content to the bottom */
+		align-items: center;       /* Centers content horizontally */
+		position: relative; 
+		padding: 0 8% 100px 8%;     /* 80px bottom padding keeps it "a little up" */
+		background: linear-gradient(rgba(6,38,29,0.35), rgba(6,38,29,0.85)), url('background.png') center/cover;
+		text-align: center;
+	}
+
+.hero-content { 
+    z-index: 2; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Optional: Add a slight animation to the hero text/timer for a premium feel */
+.hero-content {
+    animation: fadeInUp 1.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+        .hero-image {
+            position: absolute; right: 8%; top: 18%; width: 35%; height: 68%;
+            background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070') center/cover;
+            border: 1px solid var(--gold);
+        }
+        .main-title { font-family: var(--font-serif); font-size: clamp(2rem, 7vw, 4rem); line-height: 1.1; margin: 15px 0; font-weight: 900; color: var(--gold); }
+        .timer-wrap {
+			display: flex;
+			gap: 25px;
+			background: rgba(0, 0, 0, 0.2); /* Subtle dark pod for the timer */
+			padding: 15px 30px;
+			backdrop-filter: blur(5px);
+			border-radius: 2px;
+			border-top: 1px solid rgba(197, 160, 89, 0.2);
+		}
+		.t-box span { font-family: var(--font-serif); font-size: 1.8rem; display: block; color: var(--gold); }
+        .t-box label { font-size: 0.5rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        .divider { width: 100%; height: 80px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0 10 Q 50 0 100 10" fill="none" stroke="%23C5A059" stroke-width="0.3"/></svg>') center no-repeat; opacity: 0.3; margin: 40px 0; }
+
+        /* --- COUPLE SECTION --- */
+        .section-wrapper { padding: 10px 8%; position: relative; } /* Spacing between sections */
+        .section-header { text-align: center; margin-bottom: 80px; }
+        .section-header p { font-family: var(--font-fancy); color: var(--gold); font-size: 0.6rem; letter-spacing: 5px; }
+        .section-header h2 { font-family: var(--font-serif); font-size: 2.8rem; font-style: italic; color: #fff; margin-top: 10px; }
+
+        .couple-arch-flex { display: flex; gap: 60px; justify-content: center; align-items: flex-end; padding: 40px 0; }
+        .arch-container { position: relative; width: 40%; max-width: 300px; }
+        .arch-container:nth-child(1) { transform: translateY(-40px); } /* Groom Up */
+        .arch-container:nth-child(2) { transform: translateY(40px); }  /* Bride Down */
+        
+        .arch-img { width: 100%; height: 420px; border-radius: 150px 150px 0 0; overflow: hidden; border: 1px solid var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .arch-img img { width: 100%; height: 100%; object-fit: cover; }
+        .name-tag-box { position: absolute; bottom: -10px; left: -10px; background: var(--gold); color: #000; padding: 12px 30px; font-family: var(--font-fancy); font-weight: bold; font-size: 0.75rem; box-shadow: 6px 6px 0px rgba(0,0,0,0.3); }
+
+        /* --- TIMELINE --- */
+        .timeline { max-width: 800px; margin: 50px auto; position: relative; }
+        .timeline::before { content: ''; position: absolute; left: 50%; width: 1px; height: 100%; background: var(--gold); opacity: 0.2; }
+        .event-node { margin-bottom: 80px; position: relative; width: 50%; padding: 0 40px; }
+        .event-node:nth-child(even) { margin-left: auto; text-align: left; }
+        .event-node:nth-child(odd) { text-align: right; }
+        .event-node::after { content: ''; position: absolute; top: 12px; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; right: -5px; }
+        .event-node:nth-child(even)::after { left: -5px; }
+
+        /* --- PERSONALIZED CARD CONTAINER --- */
+        .invite-section-wrapper { padding: 10px 5%; max-width: 1400px; margin: 0 auto; }
+        .invite-container {
+            border: 1px solid rgba(197, 160, 89, 0.3); padding: 80px 5%; display: grid; grid-template-columns: 1fr 1.6fr; gap: 60px;
+            align-items: center; background: rgba(0,0,0,0.4); border-radius: 4px;
+        }
+
+        #luxury-tri-fold {
+            display: flex; width: 950px; height: 550px; margin: auto;
+            background-color: #0a0a0a;
+            background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
+            border: 1px solid var(--gold); position: relative; overflow: hidden;
+            box-shadow: 0 50px 120px rgba(0,0,0,1);
+        }
+
+        .card-panel {
+            flex: 1; padding: 45px 35px; display: flex; flex-direction: column;
+            position: relative; z-index: 2; border-right: 1px solid rgba(197, 160, 89, 0.15);
+        }
+
+        .panel-center {
+            flex: 1.6; text-align: center; justify-content: center;
+            background: radial-gradient(circle at center, #181818 0%, #0a0a0a 100%);
+        }
+
+        .itinerary-row { padding: 18px 0; border-bottom: 1px solid rgba(197, 160, 89, 0.12); text-align: left; }
+        .itinerary-row:last-child { border: none; }
+        .itinerary-row .time { color: var(--gold); font-size: 0.55rem; font-family: var(--font-fancy); letter-spacing: 1.5px; }
+        .itinerary-row .title { color: #fff; font-size: 0.9rem; font-weight: 600; margin: 4px 0; }
+        .itinerary-row .desc { color: #888; font-size: 0.65rem; font-style: italic; line-height: 1.4; }
+
+        .guest-name-luxe { font-family: 'Pinyon Script', cursive; font-size: 3.8rem; color: var(--gold); margin: 25px 0; line-height: 0.8; }
+
+        /* --- BUTTONS & MODAL --- */
+        .btn { background: var(--gold); color: #000; border: none; padding: 16px 40px; font-family: var(--font-fancy); font-weight: bold; cursor: pointer; transition: 0.4s; letter-spacing: 2px; font-size: 0.75rem; }
+        .btn:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+        input[type="text"] { background: transparent; border: none; border-bottom: 1px solid var(--gold); color: #fff; font-size: 1.3rem; text-align: center; padding: 10px; width: 100%; outline: none; margin-bottom: 25px; font-family: var(--font-serif); }
+        
+        #nameModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); z-index: 20000; justify-content: center; align-items: center; }
+        .modal-content { background: #040a15; border: 1px solid var(--gold); padding: 60px; text-align: center; border-radius: 2px; }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: 1.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1050px) {
+            #luxury-tri-fold { width: 100%; height: auto; flex-direction: column; }
+            .invite-container { grid-template-columns: 1fr; gap: 40px; }
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-image { display: none; }
+            .arch-container:nth-child(n) { transform: translateY(0) !important; margin: 20px auto; width: 80%; }
+        }
+		
+		.gold-accent {
+			color: var(--gold);
+			font-family: var(--font-fancy);
+			font-size: 0.7rem;
+			letter-spacing: 6px;
+			text-transform: uppercase;
+			margin-bottom: 5px;
+			text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Makes text pop against background */
+		}
+    </style>
+</head>
+<body onload="window.scrollTo(0,0)">
+
+<nav>
+    <img src="logo.png" class="nav-logo" alt="KD Logo" onclick="window.scrollTo(0,0)">
+    <div style="display: flex; align-items: center; gap: 20px;">
+        <span class="nav-text">PATEL HERITAGE</span>
+        <div class="music-control" style="cursor:pointer; border:1px solid var(--gold); padding:5px 12px; font-size:0.5rem;" onclick="toggleMusic()">[ <span id="m-label">PLAY MUSIC</span> ]</div>
+    </div>
+</nav>
+
+<div id="auto-intro">
+    <img src="ganeshji.png" class="intro-logo-big" alt="Ganesh Ji">
+    <p class="intro-text">ENTERING THE WORLD OF CELEBRATION</p>
+    <div class="intro-names">Deepesh & Kanchan</div>
+    <button id="reveal-btn" class="btn" style="visibility: hidden; opacity: 0;" onclick="revealSite()">REVEAL THE DATE</button>
+</div>
+
+<audio id="bg-audio" loop><source src="./site.mp3" type="audio/mpeg"></audio>
+
+<div class="hero">
+    <div class="hero-content">
+        <p class="gold-accent">WITH THE BLESSINGS OF THE PATEL FAMILY</p>
+        <div class="timer-wrap">
+            <div class="t-box"><span id="days">00</span><label>Days</label></div>
+            <div class="t-box"><span id="hours">00</span><label>Hrs</label></div>
+            <div class="t-box"><span id="mins">00</span><label>Min</label></div>
+            <div class="t-box"><span id="secs">00</span><label>Sec</label></div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="divider"></div>
+
+<section class="section-wrapper reveal">
+    <div class="section-header">
+        <p>TWO SOULS, ONE JOURNEY</p>
+        <h2>The Couple</h2>
+    </div>
+    <div class="couple-arch-flex">
+        <div class="arch-container">
+            <div class="arch-img"><img src="groom.jpeg" alt="Deepesh"></div>
+            <div class="name-tag-box">DEEPESH</div>
+        </div>
+        <div class="arch-container">
+            <div class="arch-img"><img src="bride.jpeg" alt="Kanchan"></div>
+            <div class="name-tag-box">KANCHAN</div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section-wrapper reveal">
+    <div class="section-header">
+        <p>SCHEDULE</p>
+        <h2>Wedding Festivities</h2>
+    </div>
+    <div class="timeline">
+        <div class="event-node"><div class="event-content"><h3>12:00 PM • TILAK</h3><h2>The Auspicious Start</h2><p>Formal Tilak ceremony to begin the journey.</p></div></div>
+        <div class="event-node"><div class="event-content"><h3>02:00 PM • SANGEET</h3><h2>Music & Melodies</h2><p>A joyous evening of dance and family ties.</p></div></div>
+        <div class="event-node"><div class="event-content"><h3>08:00 PM • WEDDING</h3><h2>The Sacred Vows</h2><p>Venue: Shree Leela Palace, Narsinghpur.</p></div></div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="invite-section-wrapper reveal">
+	<div class="section-header">
+		<p>Invitation</p>
+        <h2>Wedding Invites</h2>
+	</div>
+    <div class="invite-container">
+        <div>
+            <h2 class="main-title" style="font-size: 2.8rem; margin-bottom: 10px;">Personalize<br>Invite</h2>
+            <p style="margin-bottom: 35px; opacity: 0.6; line-height: 1.8;">Create and download your bespoke royal invitation to share with your loved ones.</p>
+            <input type="text" id="guestName" placeholder="ENTER YOUR NAME" oninput="updateInvite()">
+            <button class="btn" onclick="validateAndDownload()">DOWNLOAD CARD</button>
+        </div>
+
+        <div class="card-wrapper">
+            <div id="luxury-tri-fold">
+                <div class="card-panel">
+                    <img src="logo.png" style="width: 75px; margin-bottom: 25px; filter: drop-shadow(0 0 5px var(--gold));" alt="Logo">
+                    <p style="font-family: var(--font-fancy); color: var(--gold); font-size: 0.5rem; letter-spacing: 2px;">THE PATEL FAMILY</p>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: #fff; margin-top: 8px;">Request the honor of your presence at the wedding of their children</p>
+                    <div style="margin-top: auto;">
+                        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--gold); line-height: 1.2;">Deepesh <br>& Kanchan</h3>
+                        <p style="font-size: 0.6rem; letter-spacing: 3px; margin-top: 8px;">FEBRUARY 10, 2026</p>
+                    </div>
+                </div>
+
+                <div class="card-panel panel-center">
+                    <p style="font-family: var(--font-fancy); font-size: 0.5rem; letter-spacing: 4px; color: var(--gold); margin-bottom: 15px;">WELCOME TO THE CELEBRATION</p>
+                    <div class="guest-name-luxe" id="display-name">Guest Name</div>
+                    <p style="font-family: var(--font-serif); font-size: 0.85rem; line-height: 1.8; color: #ccc; padding: 0 15px;">
+                        Join us as we celebrate the sacred union of two families. Your blessings are the greatest gift we could receive. 
+                    </p>
+                    <div style="height: 1px; width: 60px; background: var(--gold); margin: 30px auto; opacity: 0.4;"></div>
+                    <p style="font-size: 0.55rem; letter-spacing: 3px; color: var(--gold); font-weight: 600;">SHREE LEELA PALACE, NARSINGHPUR</p>
+                </div>
+
+                <div class="card-panel" style="border:none;">
+                    <p style="font-family: var(--font-fancy); color: var(--gold); font-size: 0.5rem; letter-spacing: 2.5px; margin-bottom: 20px;">WEDDING SCHEDULE</p>
+                    
+                    <div class="itinerary-row">
+                        <p class="time">12:00 PM • ENGAGEMENT</p>
+                        <p class="title">Ring Ceremony</p>
+                        <p class="desc">The formal exchange of lifelong vows and promises.</p>
+                    </div>
+                    <div class="itinerary-row">
+                        <p class="time">01:00 PM • SANGEET</p>
+                        <p class="title">Rhythm of Joy</p>
+                        <p class="desc">A rhythmic celebration filled with music and family dance.</p>
+                    </div>
+                    <div class="itinerary-row">
+                        <p class="time">08:00 PM • WEDDING</p>
+                        <p class="title">Sacred Pheras</p>
+                        <p class="desc">The seven sacred circumambulations around the holy fire.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="nameModal">
+    <div class="modal-content">
+        <h3 style="color:var(--gold); font-family:var(--font-fancy); letter-spacing: 2px;">NAME REQUIRED</h3>
+        <p style="color:#fff; margin:20px 0; font-size: 0.9rem; opacity: 0.8;">Please enter your name to personalize your royal invitation.</p>
+        <input type="text" id="modalInput" style="border-bottom: 1px solid var(--gold); color:#fff;">
+        <br><br>
+        <button class="btn" onclick="submitModal()">PROCEED & DOWNLOAD</button>
+    </div>
+</div>
+
+<footer style="padding: 80px 0; text-align: center; opacity: 0.3; font-size: 0.55rem; letter-spacing: 6px;">
+    PATEL HERITAGE • 2026 • CELEBRATING LOVE
+</footer>
+
+<script>
+    const audio = document.getElementById('bg-audio');
+    audio.volume = 0.3;
+
+    setTimeout(() => { 
+        const btn = document.getElementById('reveal-btn');
+        btn.style.visibility = 'visible'; btn.style.opacity = '1';
+    }, 2000);
+
+    function revealSite() {
+        audio.play();
+        document.getElementById('auto-intro').style.transform = 'translateY(-100%)';
+        document.body.style.overflow = 'auto';
+    }
+
+    function toggleMusic() {
+        const label = document.getElementById('m-label');
+        if (audio.paused) { audio.play(); label.innerText = "PAUSE MUSIC"; }
+        else { audio.pause(); label.innerText = "PLAY MUSIC"; }
+    }
+
+    function updateInvite() { 
+        document.getElementById('display-name').innerText = document.getElementById('guestName').value || "Guest Name"; 
+    }
+
+    function validateAndDownload() {
+        if(!document.getElementById('guestName').value.trim()){
+            document.getElementById('nameModal').style.display = 'flex';
+        } else { generate(); }
+    }
+
+    function submitModal() {
+        const val = document.getElementById('modalInput').value.trim();
+        if(val) {
+            document.getElementById('guestName').value = val;
+            updateInvite();
+            document.getElementById('nameModal').style.display = 'none';
+            generate();
+        }
+    }
+
+    function generate() {
+        const target = document.getElementById('luxury-tri-fold');
+        html2canvas(target, { scale: 2, backgroundColor: '#0a0a0a' }).then(canvas => {
+            const link = document.createElement('a');
+            link.download = 'Deepesh-Kanchan-Invite.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+    });
+    document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
+
+    const weddingDate = new Date("Feb 10, 2026 00:00:00").getTime();
+    setInterval(() => {
+        const now = new Date().getTime(); const d = weddingDate - now;
+        if(d > 0) {
+            document.getElementById('days').innerText = String(Math.floor(d / (1000 * 60 * 60 * 24))).padStart(2, '0');
+            document.getElementById('hours').innerText = String(Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            document.getElementById('mins').innerText = String(Math.floor((d % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            document.getElementById('secs').innerText = String(Math.floor((d % (1000 * 60)) / 1000)).padStart(2, '0');
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>

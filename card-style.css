@@ -1,0 +1,90 @@
+/* --- KD LOGO & INTRO ANIMATION --- */
+.kd-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    opacity: 0.25;
+    filter: sepia(1) saturate(5) hue-rotate(10deg);
+    animation: pulseLogo 3s infinite ease-in-out;
+}
+@keyframes pulseLogo {
+    0%, 100% { opacity: 0.15; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(1.05); }
+}
+
+/* --- THE DIGITAL SPREAD CARD (BOOK STYLE) --- */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+#pretty-card-spread {
+    display: flex;
+    width: 100%;
+    max-width: 900px; 
+    height: 600px;
+    background: radial-gradient(circle, #5e0a0a 0%, #3a0404 100%);
+    border: 10px double #D4AF37; /* Gold Variable */
+    position: relative;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+    background-image: url('https://www.transparenttextures.com/patterns/pinstriped-suit.png');
+    overflow: hidden;
+}
+
+/* Center Crease for Book Look */
+#pretty-card-spread::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(255,255,255,0.1), rgba(0,0,0,0.4));
+    z-index: 10;
+}
+
+.card-page {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+.card-page::after {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    pointer-events: none;
+}
+
+/* Left Page: Ceremony Details */
+.page-left { border-right: 1px solid rgba(212, 175, 55, 0.2); }
+.page-left h3 { font-family: 'Cinzel'; color: #D4AF37; font-size: 1rem; margin-bottom: 25px; letter-spacing: 3px; }
+.ceremony-info { margin-bottom: 20px; text-align: center; }
+.ceremony-info h4 { font-size: 1.1rem; color: #fff; margin-bottom: 5px; font-family: 'Cinzel'; }
+.ceremony-info p { font-size: 0.8rem; color: #D4AF37; opacity: 0.9; }
+
+/* Right Page: Personalized Invite */
+.page-right .invite-header { font-size: 0.7rem; letter-spacing: 5px; color: #D4AF37; }
+.card-name-text-spread { 
+    font-family: 'Pinyon Script', cursive; 
+    font-size: 3.5rem; 
+    color: #D4AF37; 
+    margin: 15px 0;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+}
+
+/* Responsive: Stack pages on Mobile */
+@media (max-width: 850px) {
+    #pretty-card-spread { flex-direction: column; height: auto; max-width: 450px; }
+    #pretty-card-spread::before { display: none; }
+    .page-left { border-right: none; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+}
